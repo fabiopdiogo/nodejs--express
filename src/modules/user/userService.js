@@ -7,10 +7,8 @@ const getUserByEmail = (searchEmail) =>
 
 export const signup = (data) =>{
    
-    if(getUserByEmail(data.email)){
-        console.log("EXISTE O EMAIL")
-    }else{
-        users.push(data)
-    }
+    if(getUserByEmail(data.email)) throw new Error("email_existente")
+
+    users.push(data)
     return true
 }
